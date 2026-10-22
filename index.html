@@ -113,7 +113,8 @@ if (FREE_URL) {
 
 const list = document.getElementById('list');
 for (const [i, c] of CASES.entries()) {
-  const posted = new Date(c.posted + 'T12:00:00');
+  // Noon Turkey time for everyone, the same moment the game opens the case.
+  const posted = new Date(c.posted + 'T12:00:00+03:00');
   const unlock = new Date(posted.getTime() + UNLOCK_DAYS * 86400000);
   const row = document.createElement('div');
   row.className = 'case';
