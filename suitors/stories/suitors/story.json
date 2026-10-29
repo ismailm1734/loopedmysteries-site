@@ -1,0 +1,18 @@
+{
+  "id": "suitors",
+  "title": "ONE OF THEM",
+  "subtitle": "THE SUITORS",
+  "tagline": ["4 MEN WANT\nTO MARRY YOU.", "ONE OF THEM\nIS A VAMPIRE."],
+  "cover": "raw/hall.webp",
+  "assets": "assets/su/",
+  "chapters": ["chapter1.json"],
+  "follow": { "label": "Follow @loopedmysteries for Part 2", "url": "https://www.instagram.com/loopedmysteries/" },
+  "characters": {
+    "you": { "name": "YOU", "sprite": "heiress_hip.webp", "size": [565, 890], "face": "live/heiress_hip_", "expressions": ["worried", "joy"], "scale": 0.94, "seed": 8 },
+    "graves": { "name": "GRAVES", "sprite": "graves_hip.webp", "size": [507, 1102], "face": "live/graves_hip_", "seed": 2 },
+    "cassian": { "name": "CASSIAN", "sprite": "cassian_hip.webp", "size": [736, 1142], "face": "live/cassian_hip_", "expressions": ["smug"], "seed": 1 },
+    "rafe": { "name": "RAFE", "sprite": "rafe_hip.webp", "size": [686, 1110], "face": "live/rafe_hip_", "expressions": ["grin"], "seed": 3 },
+    "lucien": { "name": "LUCIEN", "sprite": "lucien_hip.webp", "size": [752, 1142], "face": "live/lucien_hip_", "expressions": ["smile"], "seed": 4 },
+    "theo": { "name": "THEO", "sprite": "theo_hip.webp", "size": [705, 1116], "face": "live/theo_hip_", "expressions": ["smile"], "seed": 5 }
+  }
+}
