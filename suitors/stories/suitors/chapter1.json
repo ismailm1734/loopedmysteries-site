@@ -2,6 +2,7 @@
   "id": "ch1",
   "number": 1,
   "title": "Four Men at the Gate",
+  "demo": true,
   "scenes": [
     {
       "id": "hook",
@@ -99,7 +100,8 @@
             { "id": "theo", "label": "Theo Ashby", "set": { "marry": "Theo" } },
             { "id": "lucien", "label": "Count Lucien Moreau", "set": { "marry": "Lucien" } }
           ]
-        }
+        },
+        { "end": true }
       ]
     },
     {

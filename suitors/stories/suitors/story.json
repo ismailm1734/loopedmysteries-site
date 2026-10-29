@@ -6,7 +6,7 @@
   "cover": "raw/hall.webp",
   "assets": "assets/su/",
   "chapters": ["chapter1.json"],
-  "follow": { "label": "Follow @loopedmysteries for Part 2", "url": "https://www.instagram.com/loopedmysteries/" },
+  "follow": { "label": "Follow @loopedmysteries for the full story", "url": "https://www.instagram.com/loopedmysteries/" },
   "characters": {
     "you": { "name": "YOU", "sprite": "heiress_hip.webp", "size": [565, 890], "face": "live/heiress_hip_", "expressions": ["worried", "joy"], "scale": 0.94, "seed": 8 },
     "graves": { "name": "GRAVES", "sprite": "graves_hip.webp", "size": [507, 1102], "face": "live/graves_hip_", "seed": 2 },
