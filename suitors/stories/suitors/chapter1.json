@@ -16,15 +16,28 @@
     },
     {
       "id": "will",
-      "bg": "raw/study.webp", "dim": 0.12, "blur": 2.5,
-      "glows": [[480, 1060, 260]], "warm": "left",
+      "bg": "raw/study.webp", "dim": 0.12, "blur": 2.5, "glows": [[480, 1060, 260]],
+      "warm": "left",
       "steps": [
         { "stamp": "RAVENHOLLOW · 1890" },
         { "show": "you", "at": "left", "enter": "none" },
         { "narr": "Your father's will gave you three days." },
         { "expr": "you", "to": "worried" },
         { "show": "graves", "at": "right" },
-        { "say": "graves", "text": "Marry by the full moon, my lady… or Ravenhollow is lost." }
+        { "say": "graves", "text": "Marry by the full moon, my lady… or Ravenhollow is lost." },
+        {
+          "choice": "graves_will",
+          "prompt": "What do you tell Graves?",
+          "stats": false,
+          "options": [
+            { "id": "trust", "icon": "🤝", "label": "“I trust you, Graves.”", "set": { "graves": "trust" } },
+            { "id": "doubt", "icon": "😠", "label": "“This is madness.”", "set": { "graves": "doubt" } }
+          ]
+        },
+        { "say": "you", "text": "I trust you, Graves.", "when": { "graves": "trust" } },
+        { "say": "graves", "text": "Thank you, my lady. Then let us find you a husband.", "when": { "graves": "trust" } },
+        { "say": "you", "text": "This is madness.", "when": { "graves": "doubt" } },
+        { "say": "graves", "text": "It is the will, my lady. Not mine.", "when": { "graves": "doubt" } }
       ]
     },
     {
@@ -37,30 +50,68 @@
     },
     {
       "id": "cassian",
-      "bg": "raw/door_open.webp", "zoom": [1.1, 1.18], "ambient": "snow",
-      "glows": [[280, 330, 200], [800, 330, 200]], "warm": "left",
+      "bg": "raw/door_open.webp", "zoom": [1.1, 1.18],
+      "ambient": "snow",
+      "glows": [[280, 330, 200], [800, 330, 200]],
+      "warm": "left",
       "steps": [
         { "show": "you", "at": "left", "enter": "none" },
         { "show": "cassian", "at": "right" },
         { "narr": "Lord Cassian Vale. The richest man in the county… and the coldest." },
-        { "say": "cassian", "text": "Three days. I don't intend to waste them.", "expr": "smug" }
+        { "say": "cassian", "text": "Three days. I don't intend to waste them.", "expr": "smug" },
+        {
+          "choice": "cassian_hello",
+          "prompt": "How do you greet Lord Cassian?",
+          "stats": false,
+          "options": [
+            { "id": "warm", "icon": "🙂", "label": "“Welcome to Ravenhollow, my lord.”", "set": { "cassian": "warm" } },
+            { "id": "cold", "icon": "❄️", "label": "“Neither do I.”", "set": { "cassian": "cold" } },
+            { "id": "tease", "icon": "😏", "label": "“Then don't waste mine.”", "set": { "cassian": "tease" } }
+          ]
+        },
+        { "say": "you", "text": "Welcome to Ravenhollow, my lord.", "when": { "cassian": "warm" } },
+        { "say": "cassian", "text": "Charming. I expected less.", "when": { "cassian": "warm" } },
+        { "say": "you", "text": "Neither do I.", "when": { "cassian": "cold" } },
+        { "say": "cassian", "text": "Good. Then we understand each other.", "when": { "cassian": "cold" } },
+        { "say": "you", "text": "Then don't waste mine.", "when": { "cassian": "tease" } },
+        { "say": "cassian", "text": "…Noted.", "when": { "cassian": "tease" } }
       ]
     },
     {
       "id": "rafe",
-      "bg": "raw/door_open.webp", "zoom": [1.1, 1.18], "ambient": "snow",
-      "glows": [[280, 330, 200], [800, 330, 200]], "warm": "left",
+      "bg": "raw/door_open.webp", "zoom": [1.1, 1.18],
+      "ambient": "snow",
+      "glows": [[280, 330, 200], [800, 330, 200]],
+      "warm": "left",
       "steps": [
         { "show": "you", "at": "left", "enter": "none" },
         { "show": "rafe", "at": "right" },
         { "narr": "Captain Rafe Thorne. Straight off his ship… all charm, no manners." },
-        { "say": "rafe", "text": "Lovely house. Lovelier heiress.", "expr": "grin" }
+        { "say": "rafe", "text": "Lovely house. Lovelier heiress.", "expr": "grin" },
+        {
+          "choice": "rafe_hello",
+          "prompt": "Captain Rafe is flirting. You…",
+          "stats": false,
+          "options": [
+            { "id": "laugh", "icon": "😄", "label": "Laugh", "set": { "rafe": "laugh" } },
+            { "id": "roll", "icon": "🙄", "label": "“Do you say that to every heiress?”", "set": { "rafe": "roll" } },
+            { "id": "scold", "icon": "✋", "label": "“Mind your manners, Captain.”", "set": { "rafe": "scold" } }
+          ]
+        },
+        { "expr": "you", "to": "joy", "when": { "rafe": "laugh" } },
+        { "narr": "You laugh before you can stop yourself.", "when": { "rafe": "laugh" } },
+        { "say": "rafe", "text": "There it is. I knew you had a smile.", "when": { "rafe": "laugh" } },
+        { "say": "you", "text": "Do you say that to every heiress?", "when": { "rafe": "roll" } },
+        { "say": "rafe", "text": "Only the ones with a castle.", "when": { "rafe": "roll" } },
+        { "say": "you", "text": "Mind your manners, Captain.", "when": { "rafe": "scold" } },
+        { "say": "rafe", "text": "I left them on the ship.", "when": { "rafe": "scold" } }
       ]
     },
     {
       "id": "lucien",
       "bg": "raw/salon.webp", "dim": 0.18, "blur": 1.5, "zoom": [1.1, 1.18],
-      "glows": [[220, 1220, 320]], "warm": "left",
+      "glows": [[220, 1220, 320]],
+      "warm": "left",
       "steps": [
         { "show": "you", "at": "left", "enter": "none" },
         { "show": "graves", "at": "right" },
@@ -69,12 +120,29 @@
         { "hide": "graves", "exit": "right" },
         { "show": "lucien", "at": "right" },
         { "narr": "Count Lucien Moreau. A stranger from Paris." },
-        { "say": "lucien", "text": "Enchanté.", "expr": "smile" }
+        { "say": "lucien", "text": "Enchanté.", "expr": "smile" },
+        {
+          "choice": "lucien_hello",
+          "prompt": "The Count bows to you. You…",
+          "stats": false,
+          "options": [
+            { "id": "hand", "icon": "🤍", "label": "Offer him your hand", "set": { "lucien": "hand" } },
+            { "id": "french", "icon": "🇫🇷", "label": "“Bonsoir, Count.”", "set": { "lucien": "french" } },
+            { "id": "nod", "icon": "🙂", "label": "Just nod", "set": { "lucien": "nod" } }
+          ]
+        },
+        { "narr": "He bows over your hand. A perfect gentleman.", "when": { "lucien": "hand" } },
+        { "say": "lucien", "text": "Paris was never this beautiful.", "when": { "lucien": "hand" } },
+        { "say": "you", "text": "Bonsoir, Count.", "when": { "lucien": "french" } },
+        { "say": "lucien", "text": "Ah. You speak French. Now I am in trouble.", "when": { "lucien": "french" } },
+        { "narr": "You only nod.", "when": { "lucien": "nod" } },
+        { "say": "lucien", "text": "A woman of few words. I like that.", "when": { "lucien": "nod" } }
       ]
     },
     {
       "id": "theo",
-      "bg": "raw/gate.webp", "dim": 0.18, "blur": 2.5, "zoom": [1.2, 1.28], "ambient": "snow",
+      "bg": "raw/gate.webp", "dim": 0.18, "blur": 2.5, "zoom": [1.2, 1.28],
+      "ambient": "snow",
       "warm": "right",
       "steps": [
         { "narr": "And the last one… you thought was dead." },
@@ -82,13 +150,30 @@
         { "show": "you", "at": "left", "expr": "joy" },
         { "say": "you", "text": "Theo?! …Come inside, you're freezing." },
         { "say": "theo", "text": "Is old Bruno still alive?", "expr": "smile" },
-        { "narr": "Theo Ashby. Your best friend since childhood. Bruno, your old dog, used to follow him everywhere." }
+        { "narr": "Theo Ashby. Your best friend since childhood. Bruno, your old dog, used to follow him everywhere." },
+        {
+          "choice": "theo_hello",
+          "prompt": "Theo is home. You…",
+          "stats": false,
+          "options": [
+            { "id": "hug", "icon": "🤗", "label": "Hug him again", "set": { "theo": "hug" } },
+            { "id": "smile", "icon": "😊", "label": "Smile at Theo", "set": { "theo": "smile" } },
+            { "id": "away", "icon": "👀", "label": "Look away", "set": { "theo": "away" } }
+          ]
+        },
+        { "narr": "You hug him again. For a moment, you're children again.", "when": { "theo": "hug" } },
+        { "say": "theo", "text": "I missed you too.", "when": { "theo": "hug" } },
+        { "say": "theo", "text": "You haven't changed a bit.", "when": { "theo": "smile" } },
+        { "expr": "you", "to": null, "when": { "theo": "away" } },
+        { "narr": "You look away. You don't trust your face right now.", "when": { "theo": "away" } },
+        { "say": "theo", "text": "…It's good to see you too.", "when": { "theo": "away" } }
       ]
     },
     {
       "id": "dinner",
       "bg": "raw/table.webp", "dim": 0.1, "zoom": [1.06, 1.2],
-      "glows": [[200, 1100, 260], [880, 1100, 260], [540, 1000, 220]], "ambient": "dust",
+      "glows": [[200, 1100, 260], [880, 1100, 260], [540, 1000, 220]],
+      "ambient": "dust",
       "steps": [
         { "narr": "Four suitors. One bride. Three nights until the full moon." },
         {
@@ -100,8 +185,7 @@
             { "id": "theo", "label": "Theo Ashby", "set": { "marry": "Theo" } },
             { "id": "lucien", "label": "Count Lucien Moreau", "set": { "marry": "Lucien" } }
           ]
-        },
-        { "end": true }
+        }
       ]
     },
     {
@@ -116,7 +200,8 @@
     },
     {
       "id": "mary",
-      "bg": "raw/corridor_mary2.webp", "dim": 0.15, "blur": 1, "zoom": [1.45, 1.52], "shift": [-15, -25],
+      "bg": "raw/corridor_mary2.webp", "dim": 0.15, "blur": 1, "zoom": [1.45, 1.52],
+      "shift": [-15, -25],
       "warm": "left",
       "steps": [
         { "narr": "Mary, the maid. Two small marks on her neck." },
@@ -129,10 +214,46 @@
           "choice": "look_lock",
           "prompt": "What do you do?",
           "options": [
-            { "id": "look", "icon": "🕯️", "label": "LOOK at the body", "premium": true, "set": { "path": "look" } },
-            { "id": "lock", "icon": "🔒", "label": "LOCK your door", "set": { "path": "lock" } }
+            { "id": "look", "icon": "🕯️", "label": "LOOK at the body", "set": { "path": "look" }, "goto": "look" },
+            { "id": "lock", "icon": "🔒", "label": "LOCK your door", "set": { "path": "lock" }, "goto": "lock" }
           ]
         }
+      ]
+    },
+    {
+      "id": "look",
+      "bg": "raw/mary_neck2.webp", "dim": 0.2, "zoom": [1.04, 1.12],
+      "steps": [
+        { "narr": "You kneel beside her. Her fingers are clenched tight." },
+        { "narr": "You open them, one by one." },
+        { "narr": "A torn scrap of lace." },
+        { "narr": "You saw lace like this tonight. At Count Moreau's throat." },
+        { "narr": "That morning, they buried Mary." },
+        { "end": true }
+      ]
+    },
+    {
+      "id": "lock",
+      "bg": "raw/lockdoor.webp", "dim": 0.15, "zoom": [1.04, 1.1],
+      "glows": [[930, 670, 190]],
+      "steps": [
+        { "narr": "You turn the key. You don't sleep." },
+        { "stamp": "03:40" },
+        { "narr": "A soft knock on your door." },
+        { "narr": "A whisper: “It's me. Let me in.”" },
+        { "narr": "You can't tell whose voice it is." },
+        { "narr": "You don't open." }
+      ]
+    },
+    {
+      "id": "lock_morning",
+      "bg": "raw/corridor.webp", "dim": 0.1, "zoom": [1.04, 1.12],
+      "ambient": "dust",
+      "steps": [
+        { "stamp": "MORNING" },
+        { "narr": "At dawn, there are footprints outside your door." },
+        { "narr": "That morning, they buried Mary." },
+        { "end": true }
       ]
     }
   ]
